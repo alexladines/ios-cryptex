@@ -12,6 +12,8 @@
 		0FC2A028227A327200CD6DF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FC2A027227A327200CD6DF2 /* Assets.xcassets */; };
 		0FC2A02B227A327200CD6DF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC2A029227A327200CD6DF2 /* LaunchScreen.storyboard */; };
 		0FC2A036227A378300CD6DF2 /* CryptexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2A035227A378300CD6DF2 /* CryptexViewController.swift */; };
+		0FC2A038227A38CD00CD6DF2 /* Cyptex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2A037227A38CD00CD6DF2 /* Cyptex.swift */; };
+		0FC2A03A227A3A3E00CD6DF2 /* CryptexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2A039227A3A3E00CD6DF2 /* CryptexController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		0FC2A02A227A327200CD6DF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FC2A02C227A327200CD6DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FC2A035227A378300CD6DF2 /* CryptexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptexViewController.swift; sourceTree = "<group>"; };
+		0FC2A037227A38CD00CD6DF2 /* Cyptex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cyptex.swift; sourceTree = "<group>"; };
+		0FC2A039227A3A3E00CD6DF2 /* CryptexController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptexController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				0FC2A020227A327100CD6DF2 /* AppDelegate.swift */,
+				0FC2A037227A38CD00CD6DF2 /* Cyptex.swift */,
+				0FC2A039227A3A3E00CD6DF2 /* CryptexController.swift */,
 				0FC2A032227A32C100CD6DF2 /* View Controllers */,
 				0FC2A033227A32C900CD6DF2 /* Storyboards */,
 				0FC2A034227A32EB00CD6DF2 /* Resources */,
@@ -160,7 +166,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FC2A036227A378300CD6DF2 /* CryptexViewController.swift in Sources */,
+				0FC2A03A227A3A3E00CD6DF2 /* CryptexController.swift in Sources */,
 				0FC2A021227A327100CD6DF2 /* AppDelegate.swift in Sources */,
+				0FC2A038227A38CD00CD6DF2 /* Cyptex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
