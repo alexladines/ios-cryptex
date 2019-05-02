@@ -13,9 +13,16 @@ class CryptexController {
     var currentCryptex: Cryptex?
     
     init() {
-        let cryptex1 = Cryptex(password: "Let", hint: "How do you declare a constant in swift?")
-        let cryptex2 = Cryptex(password: "Sacramento", hint: "This is the capital of California.")
-        let cryptex3 = Cryptex(password: "Git", hint: "This is like a giant undo button for your Xcode project.")
+        // Actutal game data
+//        let cryptex1 = Cryptex(password: "MAGA", hint: "President Trump's slogan.")
+//        let cryptex2 = Cryptex(password: "Beef", hint: "The healthiest food in the world.")
+//        let cryptex3 = Cryptex(password: "Xcode", hint: "Apple's IDE.")
+
+        
+        // Testing data
+        let cryptex1 = Cryptex(password: "A", hint: "A")
+        let cryptex2 = Cryptex(password: "Ab", hint: "AB")
+        let cryptex3 = Cryptex(password: "Abc", hint: "ABC")
         cryptexes.append(cryptex1)
         cryptexes.append(cryptex2)
         cryptexes.append(cryptex3)

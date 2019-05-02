@@ -11,6 +11,11 @@ import Foundation
 class Cryptex {
     var password: String
     var hint: String
+    var numChars: Int {
+        get {
+            return password.count
+        }
+    }
     
     init(password: String, hint: String){
         self.password = password
