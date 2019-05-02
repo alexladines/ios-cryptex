@@ -12,6 +12,8 @@ class CryptexViewController: UIViewController {
     
     // MARK: - Properties
     var cryptexController = CryptexController()
+    var countdownTimer:Timer?
+    
     let letters = ["A", "B", "C", "D",
                    "E", "F", "G", "H",
                    "I", "J", "K", "L",
@@ -40,16 +42,15 @@ class CryptexViewController: UIViewController {
     // MARK: - IBAction
     @IBAction func unlockButtonPressed(_ sender: Any) {
         // Test hasMatchingPassword()
-        print(self.hasMatchingPassword())
+        // print(self.hasMatchingPassword())
         
-        self.updateViews()
-        
+        self.hasMatchingPassword() ? self.presentCorrectPasswordAlert() : self.presentIncorrectPasswordAlert()
     }
     
     // MARK: - Class Methods
     func updateViews() {
         // Get random cryptex
-        cryptexController.setRandomCryptex()
+        //cryptexController.setRandomCryptex() Might be redundant after method below
         
         guard let cryptex = cryptexController.currentCryptex else { return }
         
@@ -57,6 +58,37 @@ class CryptexViewController: UIViewController {
         
         // Reload the components of the picker view so that when a new random cryptex is started, the picker view will update the number of components.
         self.letterGuesserPickerView.reloadAllComponents()
+    }
+    
+    func newCryptexAndReset() {
+        // Get random cryptex
+        self.cryptexController.setRandomCryptex()
+        
+        // Update views and components of picker
+        self.updateViews()
+        
+        // Reset timer
+        self.reset()
+    }
+    
+    // MARK: - Button Helper Functions
+    
+    // Guessed the right password
+    private func presentCorrectPasswordAlert() {
+        let alert = UIAlertController(title: "Congratulations!", message: "You have guessed the correct password.\n Would you like to play again?", preferredStyle: .alert)
+        let action = UIAlertAction(title: "New Cryptex", style: .default, handler: {_ in self.newCryptexAndReset()} )
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    // Guessed the wrong password
+    private func presentIncorrectPasswordAlert() {
+        let alert = UIAlertController(title: "Not Quite!", message: "Would you like to keep guessing, or try a new cryptex?", preferredStyle: .alert)
+        let keepGuessingAction = UIAlertAction(title: "Keep Guessing", style: .default, handler: nil)
+        let newCryptexAction = UIAlertAction(title: "New Cryptex", style: .default, handler: {_ in self.newCryptexAndReset()})
+        alert.addAction(keepGuessingAction)
+        alert.addAction(newCryptexAction)
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Game Logic
@@ -81,6 +113,21 @@ class CryptexViewController: UIViewController {
         return cryptex.password.lowercased() == String(pickerLetterChoices).lowercased()
     }
 
+    // MARK: - Timer
+    func reset() {
+        
+        // If an old timer exists, invalidate it
+        if let oldTimerExists = self.countdownTimer
+        {
+            oldTimerExists.invalidate()
+        }
+        
+        // Create a new timer
+        self.countdownTimer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true) { timer in
+            print("Timer fired!")
+        }
+    }
+    
 }
 // MARK: - UIPickerViewDataSource
 extension CryptexViewController: UIPickerViewDataSource {
